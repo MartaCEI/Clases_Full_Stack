@@ -32,3 +32,39 @@ Bloque:
 **Italic** y ` Negrita `
 
 La **función flecha** se escribe así `() => {}`
+
+
+# Clase 3 
+
+## Terminal y NPM 
+
+```bash
+ls (Lista carpetas)
+dir (directorio)
+mkdir nombre (crear carpeta nueva)
+
+## crear archivos
+- mac:  touch nombre
+- windows type nul > nombre-archivo 
+
+## mobimiento carpetas 
+cd nombre-carpeta (acceder a un direct
+orio)
+cd . (misma carpeta)
+cd.. (carpeta anterior)
+cd / (raiz de nuestro sistema disco c:\) C:
+
+```
+
+## Buscar en visualStudio
+
+```bash
+
+command + p (mac)
+ctrl + p (win)
++
+> para acceder a la parte de buscar 
++ 
+keyboar shorchuts (abrebiaciones de teclado)
+
+```
