@@ -1,6 +1,9 @@
 # https://tomascei.github.io/manual-md-fullstack/
 
-
+```bash
+En el caso de que desaparezcan las carpetas del explorador:
+comand+p >reset view location
+```
 
 # Clase 1
 

@@ -324,9 +324,11 @@ function App() {
 
 ### Mandar propiedades desde un padre a un hijo
 Se quitan las propiedades (const) y se ponen sin valor detro de las propiedades de la funcion. 
+
 ```bash
 Se desconstruyen en el hijo
 ```
+
 - NO - const nombre = "Marta"; const edad = 37 
 - SI - const Card ({nombre, edad, hobbies}) => ...
 Es decir, no se declaran las propiedades en el hijo, se declaran en el padre (App.jsx)
