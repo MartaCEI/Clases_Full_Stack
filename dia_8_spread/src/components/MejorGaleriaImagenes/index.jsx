@@ -2,12 +2,11 @@ import styles from './galeria.module.css';
 
 
 const MejorGaleriaImagenes = ({listaImagenes}) => {
-    console.log("lista es:", listaImagenes);
     return (
         <div className="galeria">
             {
                 listaImagenes.map( (item, index)=> (
-                    <Imagen key={index} src={item.src} alt={item.alt} />
+                    <Imagen key={index} {...item} />
                 ))
             }
         </div>

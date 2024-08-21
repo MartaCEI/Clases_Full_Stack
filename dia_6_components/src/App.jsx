@@ -5,7 +5,8 @@ import ListaDeTareas from './components/tareas/ListaDeTareas'
 import PerfilUsuario from './components/PerfilUsuario';
 import GaleriaImagenes from './components/GaleriaImagenes';
 import BlogPost from './components/BlogPost';
-import Restaurante from './components/Restaurante';
+import MejorGaleriaImagenes from './components/MejorGaleriaImagenes';
+import BlogPostContador from './components/BlogPostContador';
 
 function App() {
 
@@ -42,10 +43,15 @@ function App() {
       <ListaDeTareas listaTareas={tareas} />
       <PerfilUsuario usuario={userData} />
       <GaleriaImagenes listaImagenes={imageList} />
+      <MejorGaleriaImagenes listaImagenes={imageList} />
       <BlogPost titulo="Mi Primer Post" autor="Tomi" fecha="2024-07-01"  >
       <p>Lorem ipsum dolor,adipisci unde tempora recusandae tenetur numquam reprehenderit id quaerat, iure magni consectetur alias neque amet, quisquam repudiandae? Saepe temporibus inventore ipsa! Praesentium!</p>
       <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. </p>
       </BlogPost>
+      <BlogPostContador titulo="Post Cuenta Atras" autor="Marta" fecha="2024-08-21">
+      <p>IMPORTANTE, LA FECHA SE ESCRIBE AAAA/MM/DD. </p>
+      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Lorem ipsum dolor,adipisci unde tempora </p>
+      </BlogPostContador>
     </>
   )
 }

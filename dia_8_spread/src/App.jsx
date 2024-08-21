@@ -1,33 +1,63 @@
-# Clase 7 - Continuación componentes + leer Json
 
-1. Para leer objetos, se descompone. Ej: 
-```js
-const JsonRestaurante = ({restaurante}) => {
-    const {menu} = restaurante;
-    const {entrantes, principales, postres} = menu
-    return (......) }
-```
+import './css/App.css'
+import TarjetaDeUsuario from './components/TarjetaDeUsuario'
+import ListaDeTareas from './components/tareas/ListaDeTareas'
+import PerfilUsuario from './components/PerfilUsuario';
+import GaleriaImagenes from './components/GaleriaImagenes';
+import BlogPost from './components/BlogPost';
+import MejorGaleriaImagenes from './components/MejorGaleriaImagenes';
+import JsonRestaurante from './components/JsonRestaurante';
+import JsonProductos from './components/JsonProductos/JsonProductos';
+import JsonComentarios from './components/JsonComentarios/JsonComentarios';
+import JsonTestimonios from './components/JsonTestimonios';
+import JsonTarjetasRecetas from './components/JsonTarjetasRecetas';
 
-2. Para leer arrays, se utiliza map Ej:
-```js
-{
-entrantes.map(({id,nombre,precio,descripcion}) => {
-    return (
-        <div key={id}>
-        <p><b>{nombre}</b></p>
-        <p><i>{precio} €</i></p>
-        <p>{descripcion}</p>
-        </div>
-    )
-})
-}
-```
 
-## Ejercicios JSON:
+function App() {
 
-A partir de los siguientes JSON, crear componentes que muestren la información de cada uno de ellos.
+  const tareas = [
+    { id: 1, nombre: 'Estudiar React', isCompletada: true },
+    { id: 2, nombre: 'Leer un libro', isCompletada: false },
+    { id: 3, nombre: 'Mejorar mi nivel de Surf', isCompletada: false },
+    { id: 4, nombre: 'Aprender a cocinar', isCompletada: true },
+    { id: 5, nombre: 'Ver series', isCompletada: false },
+  ];
 
-```js
+  const userData =  {
+    nombre: 'El Barto',
+    email: 'elbarto@fox.com',
+    img: "https://i.ebayimg.com/images/g/Z9oAAOSwH7NlKK4J/s-l1200.webp",
+    direccion: {
+      calle: 'Calle Falsa 123',
+      ciudad: 'Springfield',
+      codigoPostal: '12345'
+    }
+  };
+
+  const imageList = [
+    { src: 'https://rickandmortyapi.com/api/character/avatar/1.jpeg', alt: 'Rick Sanchez' },
+    { src: 'https://rickandmortyapi.com/api/character/avatar/2.jpeg', alt: 'Morty Smith' },
+    { src: 'https://rickandmortyapi.com/api/character/avatar/3.jpeg', alt: 'Summer Smith' },
+  ];
+
+  const tarjeta = {
+    nombre:"Marta",
+    edad:"22",
+    ocupacion:"Estudiante"
+  }
+
+  const tarjetas = {
+    nombre:"Andrea",
+    edad:"25",
+    ocupacion:"Trabajando"
+  }
+
+  const blog = {
+    titulo:"Mi Primer Post", 
+    autor:"Tomi",
+    fecha:"2024-07-01"
+  }
+
   // JSON de Restaurante
   const restaurant = {
     "menu": {
@@ -168,37 +198,6 @@ const testimonios = [
     }
   ]
 
-  const eventosCalendario = [
-    {
-      "id": 1,
-      "title": "Reunión de equipo",
-      "date": "2024-07-05",
-      "time": "10:00",
-      "location": "Sala de conferencias A"
-    },
-    {
-      "id": 2,
-      "title": "Lanzamiento de producto",
-      "date": "2024-07-10",
-      "time": "14:00",
-      "location": "Auditorio principal"
-    },
-    {
-      "id": 3,
-      "title": "Taller de desarrollo web",
-      "date": "2024-07-15",
-      "time": "09:00",
-      "location": "Sala de formación B"
-    },
-    {
-      "id": 4,
-      "title": "Cena de empresa",
-      "date": "2024-07-20",
-      "time": "20:00",
-      "location": "Restaurante El Mirador"
-    }
-  ];
-
   const tarjetasRecetas = [
     {
       "id": 1,
@@ -248,4 +247,27 @@ const testimonios = [
       ]
     }
   ];
-```
+
+  return (
+    <>
+      <h1>Component Party con Spread</h1>
+      <TarjetaDeUsuario {...tarjeta} />
+      <TarjetaDeUsuario {...tarjetas} />
+      <ListaDeTareas listaTareas={tareas} />
+      <PerfilUsuario {...userData} />
+      <GaleriaImagenes listaImagenes={imageList} />
+      <MejorGaleriaImagenes listaImagenes={imageList} />
+      <BlogPost {...blog} >
+      <p>Lorem ipsum dolor,adipisci unde tempora recusandae tenetur numquam reprehenderit id quaerat, iure magni consectetur alias neque amet, quisquam repudiandae? Saepe temporibus inventore ipsa! Praesentium!</p>
+      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. </p>
+      </BlogPost>
+      <JsonRestaurante restaurante={restaurant} />
+      <JsonProductos listaProductos={productos} />
+      <JsonComentarios listaComentarios={comentarios} />
+      <JsonTestimonios listaTestimonios={testimonios} />
+      <JsonTarjetasRecetas listaRecetas={tarjetasRecetas} />
+    </>
+  )
+}
+
+export default App

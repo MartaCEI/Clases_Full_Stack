@@ -170,10 +170,25 @@ Para los componetes en React es lo mismo, entonces:
 1. Se crear una carpeta que se llame ej: GaleriaImagenes(CamelCase)
 2. el archivo index.jsx
 
-## MejorGaleriaImagenes (Copiado de CodePen)
-1. Busco 
+## Qué es y para qué sirve la prop `children` en React?
+Es un objeto que contiene los elementos que envuelve un componente.
+Componente que se abre y se cierra al final (en el padre) para poder autocompletar cosas en el padre y no en el hijo.
 
-HORA 1:31 CLASE 7
+1. En el padre lo que está entre las etiquetas es lo que llamamos "Children" y lo que está dentro de la etiqueta son variables normales.
+    Ej: <BlogPost titulo="Harry">Información del children que mandamos como variable </BlogPost>
+2. Mandamos children como variable
+    const BlogPost = ({titulo, children}) => {
+        return (
+            <>
+                <h2>{titulo}</h2>
+                <div>{children}</div>
+            </>
+        );
+
+## MejorGaleriaImagenes (Copiado de CodePen)
+1. Busco en google "image cards examples" (codePen) sin JavaS
+2. Cojo la parte de de html que me interesa, lo edito a mi gusto y le cambio las variables que necesitamos. Ej: En este caso el src. 
+3. Nos copiamos la hoja de estilos y los utilizamos en el className. 
 
 
 ## Ejercicios React-Component-Party
