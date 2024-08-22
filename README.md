@@ -5,6 +5,10 @@ En el caso de que desaparezcan las carpetas del explorador:
 comand+p >reset view location
 ```
 
+```bash
+f2 para cambiar todas las variables que se llaman igual
+```
+
 # Clase 1
 
 ## Como funciona internet

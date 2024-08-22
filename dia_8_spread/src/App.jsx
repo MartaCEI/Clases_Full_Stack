@@ -3,15 +3,11 @@ import './css/App.css'
 import TarjetaDeUsuario from './components/TarjetaDeUsuario'
 import ListaDeTareas from './components/tareas/ListaDeTareas'
 import PerfilUsuario from './components/PerfilUsuario';
-import GaleriaImagenes from './components/GaleriaImagenes';
 import BlogPost from './components/BlogPost';
 import MejorGaleriaImagenes from './components/MejorGaleriaImagenes';
-import JsonRestaurante from './components/JsonRestaurante';
+import JsonRestaurante from './components/JsonRestaurante/JsonRestaurante';
 import JsonProductos from './components/JsonProductos/JsonProductos';
 import JsonComentarios from './components/JsonComentarios/JsonComentarios';
-import JsonTestimonios from './components/JsonTestimonios';
-import JsonTarjetasRecetas from './components/JsonTarjetasRecetas';
-
 
 function App() {
 
@@ -255,17 +251,14 @@ const testimonios = [
       <TarjetaDeUsuario {...tarjetas} />
       <ListaDeTareas listaTareas={tareas} />
       <PerfilUsuario {...userData} />
-      <GaleriaImagenes listaImagenes={imageList} />
       <MejorGaleriaImagenes listaImagenes={imageList} />
       <BlogPost {...blog} >
       <p>Lorem ipsum dolor,adipisci unde tempora recusandae tenetur numquam reprehenderit id quaerat, iure magni consectetur alias neque amet, quisquam repudiandae? Saepe temporibus inventore ipsa! Praesentium!</p>
       <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. </p>
       </BlogPost>
-      <JsonRestaurante restaurante={restaurant} />
+      <JsonRestaurante {...restaurant} />
       <JsonProductos listaProductos={productos} />
       <JsonComentarios listaComentarios={comentarios} />
-      <JsonTestimonios listaTestimonios={testimonios} />
-      <JsonTarjetasRecetas listaRecetas={tarjetasRecetas} />
     </>
   )
 }
