@@ -261,22 +261,41 @@ El setFormData recibe los datos previos `prevData` y hago un return de mi objeto
     }
 ```
 
-Hora 1:50 
+11. Para calcular isAdulto, hacemos una lista de los valores que vamos a utilizar y mirar si está incluida dentro de RangeEdad con el método `includes`. 
+Posteriormente preguntaremos isAdulto en el return del select, y si es true, mostramos el select de ocupaciones.
+```js
+    const isAdulto = ['adulto-joven', 'adulto', 'adulto-mayor'].includes(formData.rangoEdad);
 
+    {isAdulto && (
+                <Select .......>)}
+``` 
 
+12. HandleSubmit y validateForm com mis palabras: En el validateForm creamos un objeto vacío llamado objetoErrores. Y luego hacemos las comprovaciones, si no hay nombre, apellido, rango de edad u ocupación, se guardará en ese objeto la información que le hemos asignado por cada campo. 
+ya que esta función nos devuleve una lista la guardamos en una variable en la siguiente fiunción handleSubmit. Y aquí es donde hacemos la comprovaciones:  Object.keys(listaErrores).length === 0, si la longitud de la lista de errores es 0, no hay errores y podemos enviar el formulario. Sino, hacemos un prevErrores y lo guardamos en el setErrores.
 
+```js
+    const validateForm = () => {
+        const objetoErrores = {};
+        // hacer nuestras comprobaciones.
+        if(!formData.nombre) objetoErrores.nombre="Debes ingresar un nombre";
+        if(!formData.apellido) objetoErrores.apellido="Debes ingresar un apellido";
+        if(!formData.rangoEdad) objetoErrores.rangoEdad="Debes seleccionar un rango";
+        if(isAdulto && !formData.ocupacion) objetoErrores.ocupacion="Debes seleccionar una ocupación";
+        return objetoErrores;
+    }
 
-
-
-
-
-
-
-
-
-
-
-
+    handleSubmit = (e) => {
+        e.preventDefault();
+        const listaErrores = validateForm();
+        // si existe algún error, guardarlo en errores
+        // si no, mostrar resultado por consola
+        if( Object.keys(listaErrores).length === 0 ){
+            console.log("Datos del formulario:", formData);
+        } else {
+            setErrores( prevErrores => ({ ...prevErrores, [name]: ""}));
+        }
+    }
+```	
 
 ```js 
 export const Formulario = () => {
@@ -409,8 +428,149 @@ export const Formulario = () => {
         </form>
     );
 }
+
+
+export const Input = ({name, label, type="text", value, onChange, error, className, debug=false}) =>{
+    return (
+        <div className={className}>
+            <label>
+                {label}
+                <input 
+                    className="Input-Label"
+                    type={type} 
+                    name={name}
+                    value={value} 
+                    onChange={onChange}
+                />
+            </label>
+            {error &&  <p style={ {color:'red'} }>  {error}</p> }
+            {debug && <span style={{color:'orange'}}>Has escrito: {JSON.stringify(value)}</span>}
+        </div>
+    )
+}
+
+export const Select = ({name, label, firstOptionLabel, value, onChange, lista=[{value:0, label:"no hay items"}], error, className, debug}) => {
+    return (
+        <div className={className}>
+            {label && <label htmlFor={name}>{label}</label>}
+            <select 
+                className="Input-Label"
+                name={name} 
+                id={name}
+                value={value}
+                onChange={onChange}
+                >
+                    <option value="">{firstOptionLabel}</option>
+                    {
+                        lista.map( ({value, label}) => (
+                            <option key={value} value={value}>{label}</option>
+                        ))
+                    }
+            </select>
+            {error &&  <p style={ {color:'red'} }>  {error}</p> }
+            {debug && <span style={{color:'orange'}}>Has escrito: {JSON.stringify(value)}</span>}
+        </div>
+    )
+}
 ```
 
+
+## Multu Step Form
+1. Crear un estado para el paso actual.
+```js
+    const [pantalla, setPantalla] = useState(1);
+```
+2. State para los datos del formulario.
+```js
+    const [formData, setFormData] = useState({
+        nombre: "",
+        email: "",
+    });
+```
+
+3. <form onSubmit={handleSubmit}> para enviar el formulario.
+```js
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log(formData);
+    }
+```
+
+4. Creamos tres botones: anterior, siguiente y enviar.
+```js
+    <button onClick={handleAnterior}>Anterior</button>
+    <button onClick={handleSiguiente}>Siguiente</button>
+    <button type="submit">Enviar</button>
+```
+
+5. Creamos las funciones handleAnterior, handleSiguiente y handleSubmit.
+```js
+
+    const handleSiguiente = () => {
+        setPantalla(pantalla => Math.min(pantalla + 1, 3));
+    }
+
+    const handleAnterior = () => {
+        setPantalla(pantalla => Math.max(pantalla - 1, 1));
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log("Formulario enviado con los datos:", formData);
+    }
+```
+
+6. Creamos la función de renderizar pasos la cual va a ser un switch que va a renderizar los componentes que le digamos. 
+```bash
+NOTA: En cada paso, le pasamos el data y el setData para que pueda actualizar los datos del formulario. Y apretar a los botones anterior o siguiente, la información se guardará en el storage de la página. 
+```
+```js
+    const renderizarPasos = () => {
+        switch(pantalla){
+            case 1:
+                return <Paso1 data={formData} setData={setFormData} />;
+            case 2:
+                return <Paso2 data={formData} setData={setFormData} />;
+            case 3:
+                return <Paso3 data={formData} setData={setFormData} />;
+            default:
+                return null;
+        }   
+    }
+```
+
+7. Por último, creamos los componentes de los pasos.
+```js
+    const Paso1 = ({data, setData}) => {
+        return (
+            <div>
+                <label htmlFor="nombre">Nombre:</label>
+                <input type="text" id="nombre" value={data.nombre} 
+                onChange={(e) => setData({...data, nombre: e.target.value})} />
+            </div>
+        );
+    }
+
+    const Paso2 = ({data, setData}) => {
+        return (
+            <div>
+                <label htmlFor="email">Email:</label>
+                <input type="email" id="email" value={data.email} 
+                onChange={(e) => setData({...data, email: e.target.value})} />
+            </div>
+        );
+    }
+
+    const Paso3 = ({data}) => {
+        return (
+            <div>
+                <h2>Resumen de datos</h2>
+                <p>Nombre: {data.nombre}</p>
+                <p>Email: {data.email}</p>
+            </div>
+        );
+    }
+```
 
 ## 10 Actividades para practicar useState en React
 

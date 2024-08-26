@@ -1,6 +1,8 @@
 import Contador from './component/Contador'
+import FormMultiplesPantallas from './component/FormMultiplesPantallas.jsx'
 import Formulario from './component/formulario/Formulario'
 import Interruptor from './component/Interruptor'
+import Registro from './component/Registro'
 import Tareas from './component/Tareas'
 import './css/App.css'
 
@@ -14,6 +16,8 @@ function App() {
         <Interruptor />
         <Tareas />
         <Formulario />
+        <Registro />
+        <FormMultiplesPantallas />
     </>
   )
 }

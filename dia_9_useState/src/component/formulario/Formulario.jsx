@@ -54,7 +54,6 @@ export const Formulario = () => {
     const handleChange = (e) => {
         let {name, value} = e.target;
 
-
         if(e.target.type == "checkbox"){
             value = e.target.checked;
             console.log("Checkbox value es:", value);
@@ -65,7 +64,6 @@ export const Formulario = () => {
 
         // Limpiar error cuando el usuario empieza a escribir/seleccionar
         setErrores( prevErrores => ({ ...prevErrores, [name]: ""}))
-
     }
 
     const isAdulto = ['adulto-joven', 'adulto', 'adulto-mayor'].includes(formData.rangoEdad);
