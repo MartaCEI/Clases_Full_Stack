@@ -48,7 +48,7 @@ const FormMultiplesPantallas = () => {
             {pantalla > 1 && <button onClick={handleAnterior}>Anterior</button>}
             {pantalla < 3 && <button onClick={handleSiguiente}>Siguiente</button>}  
             {renderizarPasos()}
-            <button type="submit">Enviar</button>
+            {pantalla === 3 && <button type="submit">Enviar</button>}
         </form>
     </>
     );
