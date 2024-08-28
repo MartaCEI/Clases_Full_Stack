@@ -475,7 +475,7 @@ export const Select = ({name, label, firstOptionLabel, value, onChange, lista=[{
 ```
 
 
-## Multu Step Form
+## MultiStepForm
 1. Crear un estado para el paso actual.
 ```js
     const [pantalla, setPantalla] = useState(1);
