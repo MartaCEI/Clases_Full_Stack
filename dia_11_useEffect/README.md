@@ -1,7 +1,8 @@
-# Clase 12 - useEffect
+# Clase 12 - useEffect y Fetch
 
 ## Hook useEffect
-Premite realizar efectos secundarios (ejecutar codigo) de los componenetes. Osea, nos permite ejecutar código despues de que el componentes se renderiza.
+- Nos permite realizar efectos secundarios en componentes funcionales.
+- Premite realizar efectos secundarios (ejecutar codigo) de los componenetes. Osea, nos permite ejecutar código despues de que el componentes se renderiza.
 
 
 ## Para que se usa
@@ -86,6 +87,69 @@ Es util para:
 3. La funcion de clean up es crucial para prevenir memory leaks y comportamientos inespreados
 4. Herramnienta versatil paar reemplazar todos los metodos de ciclo de vida de los componentes de Clase.
 
+## SetInterval
+```js
+// Saluda cada segundo
+    useEffect( () => {
+        const interval = setInterval( () => {
+            console.log("Hola");
+        }, 1000);
+        return () => {
+            clearInterval(interval);
+        }
+    }, [] );
+```
+```js
+const [segundos, setSegundos] = useState(0);
+    const [intervalId, setIntervalId] = useState(null);
+
+    useEffect(() => {
+        // Crea un intervalo que incremente los segundos. 
+        // setInterval recibe una función y un tiempo en milisegundos. Es decir, incrementa los segundos cada 1000 milisegundos = 1 segundo.
+        // setInterval(() => { }, 1000); (Función , tiempo en milisegundos)
+        const interval = setInterval(() => {
+            // Guarda el intervalo en el State
+            setSegundos(time => time + 1); 
+        }, 1000);
+        setIntervalId(interval); // Save the interval ID
+        // console.log('Intervalo creado');
+        
+        return () => {
+            clearInterval(interval);
+            console.log('Intervalo eliminado');
+        };
+    }, []);
+
+    const detenerIntervalo = () => {
+        if (intervalId) {
+            clearInterval(intervalId);
+            console.log('Intervalo detenido');
+        }
+    };
+
+    const stratTimer = () => {
+        clearInterval(intervalId);
+        setSegundos(0);
+        const Int = setInterval(()=>{
+            setSegundos(segundos => segundos+1)
+        }, 1000)
+        console.log('Cargué el timer', Int)
+        setIntervalId(Int);  // Guardo el intervalo en useState
+    }
+
+    const resetTimer = () => {
+        clearInterval(intervalId);
+        setSegundos(0);
+        console.log('Reset timer')
+    }
+```	
+```js
+// Para que nos salga un contador en la pestaña de la páguna web
+    useEffect(() => {
+        document.title = `Segundos: ${segundos}`;
+    }, [segundos]);
+```
+
 
 ## Fetch
 const [data, setData] = useState([]) => Lleva un array vacio ya que mi Json es un array. 
@@ -96,16 +160,35 @@ await => Espera un contenido asincrono. Devuelve una "Promesa" Ej: te prometo qu
 
 response.json() => combierte el json en un objeto de JavaScrip.
 
+```js 
+fetch('https://jsonplaceholder.typicode.com/todos')
+    .then(function(response) {
+        // response es un objeto Response que devuelve otra promesa.
+        return response.json()
+        })
+    .then(data => {
+        console.log(data)
+    })
+```
+```js 
+fetch(url)
+.then( (datos) => {return datos} )
+.then( (datos2) => {return datos2} )
+.then( (datos3) => {return datos3} )
+.catch( (e) => {console.log("hay un error", e)} )
+```
 
-        fetch(url)
-        .then( (datos) => {return datos} )
-        .then( (datos2) => {return datos2} )
-        .then( (datos3) => {return datos3} )
-        .catch( (e) => {console.log("hay un error", e)} )
 
-```bash
-***************************************IMPORTANT*********************************
-Chat GPT de Microsoft
-Microsoft Bing => Copilot 
-***************************************IMPORTANT*********************************
+## Fetch con Try y Catch
+
+```js
+    useEffect( async () => {
+        try {
+            const response = await fetch(url);
+            const data = await response.json();
+            setData(data);
+        } catch (error) {
+            console.log("Error en la petición", error);
+        }
+    }, [] );
 ```
