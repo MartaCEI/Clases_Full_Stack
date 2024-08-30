@@ -1,4 +1,5 @@
 # https://tomascei.github.io/manual-md-fullstack/
+Como usar [tempMail.com](https://temp-mail.org/es/) Clase 16 - 4 min
 
 ```bash
 En el caso de que desaparezcan las carpetas del explorador:
@@ -20,7 +21,6 @@ Tambien tiene un  servidor que contiene páginas web en carpetas con el código 
 Con node.js y javaScript podemos utilizar el mismo lenguaje tanto para front como para back. 
 - Front: La lógica que tiene que hacer nuestra compu para morstrar la página web. 
 - Back: funciones para traen cosas de nuestro servidor como DDBB y el código que tiene que ejecutar nestra máquina. 
-
 
 
 # Clase 2 (Terminal, carpetas, Markdown language)

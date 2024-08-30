@@ -20,10 +20,10 @@ const PrimerUseEffect = () => {
     }, [cont]);
 
     return (
-        <>
+        <div className="Card">
             <h2>Soy un test de useEffect</h2>
             {cont < 11 && <button onClick={() => setCont(cont+2)}>Click {cont}</button>}
-        </>
+        </div>
     );
 }
 

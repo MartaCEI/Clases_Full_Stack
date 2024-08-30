@@ -4,6 +4,7 @@ import { Ejercicio3 } from './components/Ejercicio3'
 import { Ejercicio4 } from './components/Ejercicio4'
 import { Ejercicio5 } from './components/Ejercicio5'
 import PrimerUseEffect from './components/PrimerUseEffect'
+import FetchRandomUser from './components/randomUsers/FetchRandomUser'
 import './css/App.css'
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
   return (
     <>
       <h1>useEffect</h1>
+      <FetchRandomUser />
       <PrimerUseEffect />
       <Ejercicio1 />
       <Ejercicio2 />

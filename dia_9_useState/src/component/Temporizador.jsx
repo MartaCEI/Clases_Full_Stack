@@ -26,7 +26,7 @@ const Temporizador = () => {
     }
 
     return ( 
-        <div>
+        <div className='Card'>
             <h2>Timer</h2>
             <p>Han pasado {segundos} segundos</p>
             <button onClick={stratTimer}>Start</button>

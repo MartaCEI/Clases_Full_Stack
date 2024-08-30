@@ -152,6 +152,7 @@ const [segundos, setSegundos] = useState(0);
 
 
 ## Fetch
+
 const [data, setData] = useState([]) => Lleva un array vacio ya que mi Json es un array. 
 
 asinc => Lee linea por linea (Asincrona) de arriba a bajo y cuando puedas me traes la info. 
@@ -161,14 +162,25 @@ await => Espera un contenido asincrono. Devuelve una "Promesa" Ej: te prometo qu
 response.json() => combierte el json en un objeto de JavaScrip.
 
 ```js 
-fetch('https://jsonplaceholder.typicode.com/todos')
-    .then(function(response) {
-        // response es un objeto Response que devuelve otra promesa.
-        return response.json()
-        })
-    .then(data => {
-        console.log(data)
-    })
+//version larga
+const funcion = () => {
+    fetch("https://jsonplaceholder.typicode.com/users")
+    .then( (respuesta) => {
+        return respuesta.json();
+    } )
+    .then( (json) => {
+        return setData(json)
+    } )
+    .catch( (e) => {console.log("hay un error", e)} )
+}
+
+//version corta
+const getDataUsandoThen = () => {
+    fetch("https://jsonplaceholder.typicode.com/users")
+    .then( respuesta => respuesta.json() )
+    .then( json => json.json() )
+    .catch( (e) => {console.log("hay un error", e)} )
+}
 ```
 ```js 
 fetch(url)
@@ -182,13 +194,20 @@ fetch(url)
 ## Fetch con Try y Catch
 
 ```js
-    useEffect( async () => {
+useEffect( () => {
+
+    const getDataUsandoAsync = async () => {
         try {
-            const response = await fetch(url);
-            const data = await response.json();
-            setData(data);
-        } catch (error) {
-            console.log("Error en la petición", error);
-        }
-    }, [] );
+            //Llamar a la API
+            const respuesta = await fetch("https://jsonplaceholder.typicode.com/users");
+            // Convertir el json en un objeto javaS
+            const objJson = await respuesta.json();
+            setData(objJson)
+        } catch (e) {
+            console.log("hay un error", e)} 
+    }
+
+    getDataUsandoAsync();
+    
+}, [] );
 ```
