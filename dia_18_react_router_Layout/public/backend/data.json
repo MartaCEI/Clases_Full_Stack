@@ -1,0 +1,76 @@
+{
+    "armas":[
+        {
+            "id":1,
+            "image":"great_bow.png",
+            "title":"GreatBow",
+            "description":"Soy una descripción del producto",
+            "type":"Range",
+            "damage":"damage",
+            "Ap":"Ap",
+            "range":"range",
+            "DPS":"DPS",
+            "price":54
+        },
+        {
+            "id":2,
+            "image":"lmg.png",
+            "title":"LMG",
+            "description":"Soy una descripción del producto",
+            "type":"type",
+            "damage":"damage",
+            "Ap":"Ap",
+            "range":"range",
+            "DPS":"DPS",
+            "price":28
+        },
+        {
+            "id":3,
+            "image":"chain_shotgun.png",
+            "title":"Chain Shotgun",
+            "description":"Soy una descripción del producto",
+            "type":"type",
+            "damage":"damage",
+            "Ap":"Ap",
+            "range":"range",
+            "DPS":"DPS",
+            "price":24
+        },
+        {
+            "id":4,
+            "image":"frag_grenades.png",
+            "title":"Frag Granades",
+            "description":"Soy una descripción del producto",
+            "type":"type",
+            "damage":"damage",
+            "Ap":"Ap",
+            "range":"range",
+            "DPS":"DPS",
+            "price":22
+        },
+        {
+            "id":5,
+            "image":"club.png",
+            "title":"Club",
+            "description":"Soy una descripción del producto",
+            "type":"type",
+            "damage":"damage",
+            "Ap":"Ap",
+            "range":"range",
+            "DPS":"DPS",
+            "price":30
+        },
+        {
+            "id":6,
+            "image":"zeusHammer.png",
+            "title":"ZeusHammer",
+            "description":"Soy una descripción del producto",
+            "type":"type",
+            "damage":"damage",
+            "Ap":"Ap",
+            "range":"range",
+            "DPS":"DPS",
+            "price":20
+        }
+    ]
+}

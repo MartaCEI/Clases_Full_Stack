@@ -1,10 +1,8 @@
 import { createBrowserRouter } from 'react-router-dom';
 import Layout from '../../Layout';
-import Personajes from '../../pages/Personajes';
-import Personaje from '../../components/Personaje';
-import Episodes from '../../pages/Episodes';
-import Locations from '../../pages/Locations';
-import ErrorPage from '../../error-page';
+import Catalogo from '../../pages/Catalogo';
+import Producto from '../../pages/Producto';
+import ErrorPage from '../../Errorpage';
 
 const router = createBrowserRouter (
     [
@@ -14,20 +12,12 @@ const router = createBrowserRouter (
             errorElement: <ErrorPage />,
             children: [
                 {
-                    path: '/',
-                    element: <Personajes />,
+                    index: true,
+                    element: <Catalogo />,
                 }, 
                 {
-                    path: '/personaje/:Id',
-                    element: <Personaje />,
-                },  
-                {
-                    path: '/episodios',
-                    element: <Episodes />,
-                },  
-                {
-                    path: '/lugares',
-                    element: <Locations />,
+                    path: 'producto/:id',
+                    element: <Producto />,
                 }
             ]
         }

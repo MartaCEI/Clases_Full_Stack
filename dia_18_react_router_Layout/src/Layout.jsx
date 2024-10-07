@@ -1,10 +1,10 @@
 
 import { Outlet } from 'react-router-dom'
-import './css/App.css'
+import './css/catalogo.css'
 import Header from './components/Header'
 import Footer from './components/Footer'
 
-function App() {
+function Layout() {
   
 
   return (
@@ -18,4 +18,4 @@ function App() {
   )
 }
 
-export default App
+export default Layout

@@ -1,0 +1,108 @@
+.Catalogo-container {
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    max-width: 1400px;
+}
+
+.Catalogo-h1 {
+    font-size: 2rem;
+    margin: 0;
+    padding: 0 0 1rem 0;
+    text-align: center;
+}
+
+.Catalogo-ul {
+    margin: auto;
+    display: grid;
+    padding: 0;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 2rem;
+    justify-content: center;
+    align-items: stretch;
+}
+
+.Catalogo-a {
+    text-decoration: none;
+    color: black;
+}
+
+.Catalogo-li {
+    list-style: none;
+    padding: 1rem;
+    border: 1px solid black;
+    border-radius: 1rem;
+}
+
+.Catalogo-li:hover {
+    background-color: #f0f0f0;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+}
+
+.Catalogo-div {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+
+.Catalogo-h2 {
+    font-size: 1.5rem;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.Catalogo-p {
+    font-size: 1rem;
+    margin: 0;
+    padding: 0;
+}
+
+.Catalogo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 1rem;
+}
+
+.Producto-container {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.Producto-h2 {
+    font-size: 2rem;
+}
+
+.Producto-img {
+    max-width: 15rem;
+}
+
+.Producto-p {
+}
+
+.Producto-div {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.Producto-precio {
+    font-size: 1.5rem;
+    color: #e47e00;
+    margin: 2rem 0;
+    padding: 0;
+}
+
+.Producto-btn {
+    padding: 1rem;
+    border: none;
+    border-radius: 1rem;
+    background-color: #e47e00;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+}
