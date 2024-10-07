@@ -8,8 +8,7 @@ const Producto = () => {
 
     useEffect(() => {
         fetchProducto();
-    }
-    , []);
+    }, []);
 
     const fetchProducto = async () => {
         try {

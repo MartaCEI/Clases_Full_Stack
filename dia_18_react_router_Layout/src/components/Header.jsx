@@ -2,11 +2,19 @@ import { NavLink } from "react-router-dom";
 
 const Header = () => {
     return (
-        <header>
-            <h1>Header</h1>
-            <nav>
-                <ul>
-                    <li><NavLink to={"/"}></NavLink></li>
+        <header className="Header">
+            <h1 className="Header-h1">Rimworld</h1>
+            <nav className="Header-nav">
+                <ul className="Header-ul">
+                    <li className="Header-li">
+                        <NavLink className="Header-a" to={"/"}>Home</NavLink>
+                    </li>
+                    <li className="Header-li">
+                        <NavLink className="Header-a" to={"catalogo"}>Catálogo</NavLink>
+                    </li>
+                    <li className="Header-li">
+                        <NavLink className="Header-a" to={"carrito"}>Carrito</NavLink>
+                    </li>
                 </ul>
             </nav>
         </header>

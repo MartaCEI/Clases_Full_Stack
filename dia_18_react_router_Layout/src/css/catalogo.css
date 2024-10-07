@@ -1,3 +1,37 @@
+
+.Header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #e47e00;
+    color: white;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+}
+
+.Header-h1 {
+    font-size: 2rem;
+    margin: 0;
+    padding: 0;
+}
+
+.Header-ul {
+    display: flex;
+    gap: 1rem;
+    padding: 0;
+    margin: 0;
+}
+
+.Header-li {
+    list-style: none;
+}
+
+.Header-a {
+    text-decoration: none;
+    color: white;
+}
+
+
 .Catalogo-container {
     margin: 0 auto;
     padding: 1rem 2rem;
@@ -9,6 +43,15 @@
     margin: 0;
     padding: 0 0 1rem 0;
     text-align: center;
+}
+
+.Catalogo-container-filter {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    padding: 0 0 1rem 0;
 }
 
 .Catalogo-ul {
@@ -83,6 +126,9 @@
 }
 
 .Producto-p {
+    font-size: 1.5rem;
+    margin: 0;
+    padding: 0;
 }
 
 .Producto-div {
@@ -90,7 +136,8 @@
     grid-template-columns: 1fr 1fr;
 }
 
-.Producto-precio {
+.Producto-precio,
+.Catalogo-precio {
     font-size: 1.5rem;
     color: #e47e00;
     margin: 2rem 0;
@@ -99,6 +146,24 @@
 
 .Producto-btn {
     padding: 1rem;
+    border: none;
+    border-radius: 1rem;
+    background-color: #e47e00;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.Catalogo-filter {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.Catalogo-btn-filter {
+    padding: 0.5rem 1rem;
     border: none;
     border-radius: 1rem;
     background-color: #e47e00;

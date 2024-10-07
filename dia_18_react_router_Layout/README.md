@@ -182,7 +182,7 @@ reactDOM.render(
     export default ErrorPage;
     ```
 
-## Notas: Para este proyecto Catálogo:
+### Notas: Para este proyecto Catálogo:
 Ya que todavia no tenemos una Api ExpressJS del back-end, podemos utilizar un archivo JSON para simular la base de datos dentro de la carpeta public o en lib/utils/datos.json y hacer un fetch a ese archivo JSON.
 También se puede descargar fotos en la carpeta public y las podemos llar desde el JSON solo con el nombre de la imagen. La URL para la image seria `http://localhost:3000/img/${imagen}`. Normalmente las imagenes irian en el backend.
 
@@ -193,9 +193,12 @@ Carpetas:
         - img
             - imagen1.jpg
             - imagen2.jpg
-            
+
+9. Creamos el archivo datos.json en la carpeta public. Que nos recogerá los datos de los productos, el estado:ok y la cantidad para poder trabajar con filtrado. 
 ```json
-{
+{   
+    "state": "ok",
+    "cantidad": 2,
     "productos": [
         {
             "id": 1,
@@ -214,3 +217,56 @@ Carpetas:
     ]
 }
 ```
+
+## Filtrado de productos según el precio
+- Creo un useState para el filtro de productos:
+    ```jsx
+    const [filtro, setFiltro] = useState('');
+    ```
+- Creo el fetch para obtener los datos tanto de los productos como de los productos que vamos a filtrar. 
+```jsx
+    const fetchProductos = async () => {
+        try {
+            const response = await fetch('/backend/data.json');
+            const objeto = await response.json();
+            setProductos(objeto.productos);
+            setFiltro(objeto.productos);
+        } catch (error) {
+            console.error("Error al obtener los datos:", error);
+        }
+    }
+```
+- En el return entonces puedo ya imprimir los productos en total que tiene la página y la cantidad de productos filtrados.
+```bash
+NOTA: Para hacer el map, se impromiran los productos filtrados. No todos los productos
+```
+```jsx
+    <h2>Catálogo de Productos</h2>
+    <p>Productos: {productos.length}</p>
+    <p>Productos Filtrados: {filtro.length}</p>
+```
+- Y crear botones con HandleClick para filtrar los productos según el precio.
+```jsx
+    <button onClick={() => handleClick(0)}>Todos los productos</button>
+    <button onClick={() => handleClick(100)}>Más de 100€</button>
+    <button onClick={() => handleClick(200)}>Más de 200€</button>
+    <button onClick={() => handleClick(300)}>Más de 300€</button>
+
+    const handleClick = (precio) => {
+        const filtrados = productos.filter(producto => producto.price > precio);
+        setFiltro(filtrados);
+    }
+    
+    // con un input se puede hacer un filtro por nombre
+    const [busqueda, setBusqueda] = useState('');
+    <input type="text" placeholder="Filtrar por nombre" onChange={handleInput} value={busqueda} />
+
+    const handleInput = (e) => {
+        const busqueda = e.target.value;
+        const filtrados = productos.filter(producto => producto.title.toLowerCase().includes(busqueda.toLowerCase()));
+        setFiltro(filtrados);
+    }
+```
+
+
+

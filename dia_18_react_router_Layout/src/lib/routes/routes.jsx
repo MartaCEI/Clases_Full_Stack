@@ -3,6 +3,7 @@ import Layout from '../../Layout';
 import Catalogo from '../../pages/Catalogo';
 import Producto from '../../pages/Producto';
 import ErrorPage from '../../Errorpage';
+import Carrito from '../../pages/Carrito';
 
 const router = createBrowserRouter (
     [
@@ -18,7 +19,15 @@ const router = createBrowserRouter (
                 {
                     path: 'producto/:id',
                     element: <Producto />,
+                },
+                {
+                    path: 'carrito',
+                    element: <Carrito />,
                 }
+                // {
+                //     path: 'chechout',
+                //     element: <Checkout />,
+                // }
             ]
         }
     ]

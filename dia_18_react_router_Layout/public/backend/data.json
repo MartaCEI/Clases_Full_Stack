@@ -1,5 +1,7 @@
 {
-    "armas":[
+    "state": "ok",
+    "cantidad": 6,
+    "productos":[
         {
             "id":1,
             "image":"great_bow.png",
@@ -10,7 +12,7 @@
             "Ap":"Ap",
             "range":"range",
             "DPS":"DPS",
-            "price":54
+            "price":50
         },
         {
             "id":2,
@@ -22,7 +24,7 @@
             "Ap":"Ap",
             "range":"range",
             "DPS":"DPS",
-            "price":28
+            "price":101
         },
         {
             "id":3,
@@ -34,7 +36,7 @@
             "Ap":"Ap",
             "range":"range",
             "DPS":"DPS",
-            "price":24
+            "price":150
         },
         {
             "id":4,
@@ -46,7 +48,7 @@
             "Ap":"Ap",
             "range":"range",
             "DPS":"DPS",
-            "price":22
+            "price":201
         },
         {
             "id":5,
@@ -58,7 +60,7 @@
             "Ap":"Ap",
             "range":"range",
             "DPS":"DPS",
-            "price":30
+            "price":250
         },
         {
             "id":6,
@@ -70,7 +72,7 @@
             "Ap":"Ap",
             "range":"range",
             "DPS":"DPS",
-            "price":20
+            "price":301
         }
     ]
 }
