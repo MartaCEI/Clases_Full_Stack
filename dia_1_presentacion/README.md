@@ -8,4 +8,4 @@ Tambien tiene un  servidor que contiene páginas web en carpetas con el código 
 ## Node.JS
 Con node.js y javaScript podemos utilizar el mismo lenguaje tanto para front como para back. 
 - Front: La lógica que tiene que hacer nuestra compu para morstrar la página web. 
-- Back: funciones para traen cosas de nuestro servidor como DDBB y el código que tiene que ejecutar nestra máquina. 
+- Back: funciones para traen cosas de nuestro servidor como DDBB y el código que tiene que ejecutar nuestra máquina. 
