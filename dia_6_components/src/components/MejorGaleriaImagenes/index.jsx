@@ -6,7 +6,8 @@ const MejorGaleriaImagenes = ({listaImagenes}) => {
     return (
         <div className="galeria">
             {
-                listaImagenes.map( (item, index)=> (
+                listaImagenes.map( (item, index)=> 
+                (
                     <Imagen key={index} src={item.src} alt={item.alt} />
                 ))
             }
