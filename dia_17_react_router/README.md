@@ -7,7 +7,7 @@ npm install react-router-dom
 
 2. En App.js importamos BrowserRouter y Route
 ```jsx
-import { BrowserRouter as Router, Route, Link, NacLink, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link, NavLink, Routes } from 'react-router-dom';
 ```
 BrowserRouter: es el componente que envuelve toda la aplicación. Le cambiamos el nombre a Router para que sea más corto.
 Route: es el componente que nos permite definir una ruta.

@@ -194,7 +194,7 @@ Carpetas:
             - imagen1.jpg
             - imagen2.jpg
 
-9. Creamos el archivo datos.json en la carpeta public. Que nos recogerá los datos de los productos, el estado:ok y la cantidad para poder trabajar con filtrado. 
+9. Creamos el archivo datos.json en la carpeta public. Que nos recogerá los datos de los productos, el estado:ok y la cantidad para poder trabajar con filtrado.
 ```json
 {   
     "state": "ok",
@@ -267,6 +267,3 @@ NOTA: Para hacer el map, se impromiran los productos filtrados. No todos los pro
         setFiltro(filtrados);
     }
 ```
-
-
-
